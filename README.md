@@ -1,6 +1,6 @@
-# StemDrop
+# StemHub
 
-StemDrop is a music collaboration platform
+StemHub is a music collaboration platform
 for producers and artists to share, sync, and co-create music projects.
 
 ## Features

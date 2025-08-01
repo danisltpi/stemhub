@@ -1,4 +1,4 @@
-package com.stemdrop.backend.auth.model;
+package com.stemhub.backend.auth.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -20,5 +20,4 @@ public class User {
 
     @Column(nullable = false)
     private String role; // "USER", "ADMIN", ...
-
 }

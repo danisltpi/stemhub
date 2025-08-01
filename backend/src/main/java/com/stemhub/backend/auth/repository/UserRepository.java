@@ -1,6 +1,6 @@
-package com.stemdrop.backend.auth.repository;
+package com.stemhub.backend.auth.repository;
 
-import com.stemdrop.backend.auth.model.User;
+import com.stemhub.backend.auth.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
