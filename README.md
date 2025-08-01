@@ -5,6 +5,8 @@ for producers and artists to share, sync, and co-create music projects.
 
 ## Features
 
+- User authentication
+- Version Control for Ableton Live Projects
 - Project-based collaboration with private or public visibility
 - Upload and download audio stems with version history
 - Real-time sync metadata and collaboration status
@@ -22,7 +24,7 @@ for producers and artists to share, sync, and co-create music projects.
 
 **Backend**
 
-- Java 24 + Spring Boot 3
+- Java 21 + Spring Boot 3
 - PostgreSQL
 - Spring Security + JWT
 - RESTful API
