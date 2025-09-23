@@ -1,6 +1,8 @@
 package com.stemhub.backend;
 
 import com.stemhub.backend.auth.jwt.JwtUtils;
+import com.stemhub.backend.auth.jwt.LoginRequest;
+import com.stemhub.backend.auth.jwt.LoginResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +22,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @RestController
 public class GreetingsController {
@@ -52,7 +53,9 @@ public class GreetingsController {
                                               Authentication authentication) {
         try {
             authentication = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(loginRequest));
+                    new UsernamePasswordAuthenticationToken(
+                            loginRequest.getUsername(),
+                            loginRequest.getPassword()));
         } catch (AuthenticationException exception){
             Map<String, Object> map = new HashMap<>();
             map.put("message", "Bad credentials");
@@ -65,7 +68,7 @@ public class GreetingsController {
         List<String> roles = userDetails.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .toList();
-        LoginResponse response = new LoginResponse(userDetails.getUsername(), roles);
+        LoginResponse response = new LoginResponse(userDetails.getUsername(), roles, jwt);
         return ResponseEntity.ok(response);
     }
 }
